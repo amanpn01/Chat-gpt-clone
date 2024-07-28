@@ -31,30 +31,28 @@ Before you begin, ensure you have the following installed on your local machine:
    git clone https://github.com/amanpn01/Chat-gpt-clone.git
    cd your-repo-name
 
-
 2. **Infrastructure Setup**:
 
    - Navigate to the Instance-terraform directory and initialize Terraform:
 
-     \```bash
+    ```bash
      cd Instance-terraform
      terraform init
-     \```
 
    - Apply the Terraform configuration to provision the required resources:
 
-     \```bash
+    ```bash
      terraform apply
-     \```
+    
 
 3. **Deploy to Kubernetes**:
 
-   - Navigate to the `Eks-terraform` directory and initialize Terraform:
+   - Navigate to the Eks-terraform directory and initialize Terraform:
 
-     \```bash
+    ```bash
      cd Eks-terraform
      terraform init
-     \```
+    
 
    - Apply the Kubernetes manifests:
 
