@@ -28,16 +28,16 @@ Before you begin, ensure you have the following installed on your local machine:
 1. **Clone the repository**:
 
    \```bash
-   git clone https://github.com/your-username/your-repo-name.git
+   git clone https://github.com/amanpn01/Chat-gpt-clone.git
    cd your-repo-name
    \```
 
 2. **Infrastructure Setup**:
 
-   - Navigate to the `infrastructure` directory and initialize Terraform:
+   - Navigate to the `Instance-terraform` directory and initialize Terraform:
 
      \```bash
-     cd infrastructure
+     cd Instance-terraform
      terraform init
      \```
 
@@ -47,21 +47,14 @@ Before you begin, ensure you have the following installed on your local machine:
      terraform apply
      \```
 
-3. **Build and Push Docker Image**:
+3. **Deploy to Kubernetes**:
 
-   - Build the Docker image:
-
-     \```bash
-     docker build -t your-dockerhub-username/chat-gpt-clone .
-     \```
-
-   - Push the image to Docker Hub:
+   - Navigate to the `Eks-terraform` directory and initialize Terraform:
 
      \```bash
-     docker push your-dockerhub-username/chat-gpt-clone
+     cd Eks-terraform
+     terraform init
      \```
-
-4. **Deploy to Kubernetes**:
 
    - Apply the Kubernetes manifests:
 
