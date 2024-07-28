@@ -38,10 +38,10 @@ Before you begin, ensure you have the following installed on your local machine:
 
    - Navigate to the `infrastructure` directory and initialize Terraform:
 
-     \```bash
+     `bash
      cd infrastructure
      terraform init
-     \```
+     `
 
    - Apply the Terraform configuration to provision the required resources:
 
