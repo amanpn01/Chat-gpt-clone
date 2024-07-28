@@ -44,21 +44,22 @@ Before you begin, ensure you have the following installed on your local machine:
 
     ```bash
      terraform apply
-    
-3. **Deploy to Kubernetes**:
+    ```
 
-   - Navigate to the Eks-terraform directory and initialize Terraform:
+3. **Deploy on Kubernetes**:
+
+   - Navigate to the k8s directory and initialize Terraform:
 
     ```bash
-     cd Eks-terraform
+     cd /Chat-gpt-deployment/k8s
      terraform init
-    
-
+    ```
    - Apply the Kubernetes manifests:
 
-     \```bash
-     kubectl apply -f k8s/
-     \```
+    ```bash
+     kubectl apply -f chatbot-ui.yaml
+     kubectl get all
+    ```
 
 5. **CI/CD Pipeline Setup**:
 
