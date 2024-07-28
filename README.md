@@ -1,6 +1,4 @@
-# Updating the README content to ensure code blocks are correctly formatted
 
-updated_readme_content = """
 # Chat GPT Clone App Deployment on Kubernetes
 
 This project demonstrates the deployment of a Chat GPT clone application on a Kubernetes cluster using Terraform and Jenkins CI/CD pipeline. The setup automates the provisioning of infrastructure and the deployment of the application, providing a scalable and efficient solution for managing AI-powered chat services.
@@ -28,24 +26,20 @@ Before you begin, ensure you have the following installed on your local machine:
 ## Installation
 
 1. **Clone the repository**:
-
-   \```bash
-   git clone https://github.com/your-username/your-repo-name.git
-   cd your-repo-name
-   \```
-
+`
    ```bash
-   git clone https://github.com/your-username/your-repo-name.git
+   git clone https://github.com/amanpn01/Chat-gpt-clone.git
    cd your-repo-name
+
 
 2. **Infrastructure Setup**:
 
-   - Navigate to the infrastructure directory and initialize Terraform:
+   - Navigate to the Instance-terraform directory and initialize Terraform:
 
-     `bash \
-     cd infrastructure
+     \```bash
+     cd Instance-terraform
      terraform init
-     \`
+     \```
 
    - Apply the Terraform configuration to provision the required resources:
 
@@ -53,21 +47,14 @@ Before you begin, ensure you have the following installed on your local machine:
      terraform apply
      \```
 
-3. **Build and Push Docker Image**:
+3. **Deploy to Kubernetes**:
 
-   - Build the Docker image:
-
-     \```bash
-     docker build -t your-dockerhub-username/chat-gpt-clone .
-     \```
-
-   - Push the image to Docker Hub:
+   - Navigate to the `Eks-terraform` directory and initialize Terraform:
 
      \```bash
-     docker push your-dockerhub-username/chat-gpt-clone
+     cd Eks-terraform
+     terraform init
      \```
-
-4. **Deploy to Kubernetes**:
 
    - Apply the Kubernetes manifests:
 
@@ -90,4 +77,3 @@ Contributions are welcome! Please fork the repository and submit a pull request.
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-"""
