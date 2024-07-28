@@ -1,126 +1,86 @@
-# Chatbot UI
 
-Chatbot UI is an advanced chatbot kit for OpenAI's chat models built on top of [Chatbot UI Lite](https://github.com/mckaywrigley/chatbot-ui-lite) using Next.js, TypeScript, and Tailwind CSS.
+# Chat GPT Clone App Deployment on Kubernetes
 
-See a [demo](https://twitter.com/mckaywrigley/status/1640380021423603713?s=46&t=AowqkodyK6B4JccSOxSPew).
+This project demonstrates the deployment of a Chat GPT clone application on a Kubernetes cluster using Terraform and Jenkins CI/CD pipeline. The setup automates the provisioning of infrastructure and the deployment of the application, providing a scalable and efficient solution for managing AI-powered chat services.
 
-![Chatbot UI](./public/screenshot.png)
+## Introduction
 
-## Updates
+This repository contains the source code and deployment scripts for a Chat GPT clone app. The deployment process involves:
+- Infrastructure provisioning using Terraform
+- Containerization and orchestration with Kubernetes
+- Continuous Integration and Continuous Deployment (CI/CD) using Jenkins
 
-Chatbot UI will be updated over time.
+The project is based on the [Medium article by Aakib Khan](https://aakibkhan1.medium.com/project-11-deployment-of-chat-gpt-clone-app-on-kubernetes-using-terraform-and-jenkins-ci-cd-904d9460aaf5), which provides a detailed guide on setting up and deploying the application.
 
-Expect frequent improvements.
+## Prerequisites
 
-**Next up:**
+Before you begin, ensure you have the following installed on your local machine:
 
-- [ ] Delete messages
-- [ ] More model settings
-- [ ] Plugins
+- **Terraform**: Infrastructure as Code (IaC) tool for provisioning resources
+- **Docker**: For containerizing the application
+- **Kubernetes**: For orchestrating containerized applications
+- **Jenkins**: For setting up the CI/CD pipeline
+- **kubectl**: Command-line tool for Kubernetes management
+- **Git**: Version control system
 
-**Recent updates:**
+## Installation
 
-- [x] Prompt templates (3/27/23)
-- [x] Regenerate & edit responses (3/25/23)
-- [x] Folders (3/24/23)
-- [x] Search chat content (3/23/23)
-- [x] Stop message generation (3/22/23)
-- [x] Import/Export chats (3/22/23)
-- [x] Custom system prompt (3/21/23)
-- [x] Error handling (3/20/23)
-- [x] GPT-4 support (access required) (3/20/23)
-- [x] Search conversations (3/19/23)
-- [x] Code syntax highlighting (3/18/23)
-- [x] Toggle sidebar (3/18/23)
-- [x] Conversation naming (3/18/23)
-- [x] Github flavored markdown (3/18/23)
-- [x] Add OpenAI API key in app (3/18/23)
-- [x] Markdown support (3/17/23)
+1. **Clone the repository**:
 
-## Modifications
+   \```bash
+   git clone https://github.com/your-username/your-repo-name.git
+   cd your-repo-name
+   \```
 
-Modify the chat interface in `components/Chat`.
+2. **Infrastructure Setup**:
 
-Modify the sidebar interface in `components/Sidebar`.
+   - Navigate to the `infrastructure` directory and initialize Terraform:
 
-Modify the system prompt in `utils/index.ts`.
+     \```bash
+     cd infrastructure
+     terraform init
+     \```
 
-## Deploy
+   - Apply the Terraform configuration to provision the required resources:
 
-**Vercel**
+     \```bash
+     terraform apply
+     \```
 
-Host your own live version of Chatbot UI with Vercel.
+3. **Build and Push Docker Image**:
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fmckaywrigley%2Fchatbot-ui)
+   - Build the Docker image:
 
-**Replit**
+     \```bash
+     docker build -t your-dockerhub-username/chat-gpt-clone .
+     \```
 
-Fork Chatbot UI on Replit [here](https://replit.com/@MckayWrigley/chatbot-ui-pro?v=1).
+   - Push the image to Docker Hub:
 
-**Docker**
+     \```bash
+     docker push your-dockerhub-username/chat-gpt-clone
+     \```
 
-Build locally:
+4. **Deploy to Kubernetes**:
 
-```shell
-docker build -t chatgpt-ui .
-docker run -e OPENAI_API_KEY=xxxxxxxx -p 3000:3000 chatgpt-ui
-```
+   - Apply the Kubernetes manifests:
 
-Pull from ghcr:
+     \```bash
+     kubectl apply -f k8s/
+     \```
 
-```
-docker run -e OPENAI_API_KEY=xxxxxxxx -p 3000:3000 ghcr.io/mckaywrigley/chatbot-ui:main
-```
+5. **CI/CD Pipeline Setup**:
 
-## Running Locally
+   - Set up Jenkins and configure the pipeline using the provided Jenkinsfile.
 
-**1. Clone Repo**
+## Usage
 
-```bash
-git clone https://github.com/mckaywrigley/chatbot-ui.git
-```
+Once the deployment is complete, the Chat GPT clone app will be accessible via the external IP of the Kubernetes service. You can interact with the application using the provided frontend interface or API endpoints.
 
-**2. Install Dependencies**
+## Contributing
 
-```bash
-npm i
-```
+Contributions are welcome! Please fork the repository and submit a pull request.
 
-**3. Provide OpenAI API Key**
+## License
 
-Create a .env.local file in the root of the repo with your OpenAI API Key:
-
-```bash
-OPENAI_API_KEY=YOUR_KEY
-```
-
-> You can set `OPENAI_API_HOST` where access to the official OpenAI host is restricted or unavailable, allowing users to configure an alternative host for their specific needs.
-
-> Additionally, if you have multiple OpenAI Organizations, you can set `OPENAI_ORGANIZATION` to specify one.
-
-**4. Run App**
-
-```bash
-npm run dev
-```
-
-**5. Use It**
-
-You should be able to start chatting.
-
-## Configuration
-
-When deploying the application, the following environment variables can be set:
-
-| Environment Variable  | Default value                  | Description                                             |
-| --------------------- | ------------------------------ | ------------------------------------------------------- |
-| OPENAI_API_KEY        |                                | The default API key used for authentication with OpenAI |
-| DEFAULT_MODEL         | `gpt-3.5-turbo`                | The default model to use on new conversations           |
-| DEFAULT_SYSTEM_PROMPT | [see here](utils/app/const.ts) | The defaut system prompt to use on new conversations    |
-
-If you do not provide an OpenAI API key with `OPENAI_API_KEY`, users will have to provide their own key.
-If you don't have an OpenAI API key, you can get one [here](https://platform.openai.com/account/api-keys).
-
-## Contact
-
-If you have any questions, feel free to reach out to me on [Twitter](https://twitter.com/mckaywrigley).
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
