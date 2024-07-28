@@ -27,10 +27,10 @@ Before you begin, ensure you have the following installed on your local machine:
 
 1. **Clone the repository**:
 
-   \```bash
+\```bash
    git clone https://github.com/amanpn01/Chat-gpt-clone.git
    cd your-repo-name
-   \```
+\```
 
 2. **Infrastructure Setup**:
 
