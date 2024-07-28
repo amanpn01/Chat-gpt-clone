@@ -34,6 +34,10 @@ Before you begin, ensure you have the following installed on your local machine:
    cd your-repo-name
    \```
 
+   ```bash
+   git clone https://github.com/your-username/your-repo-name.git
+   cd your-repo-name
+
 2. **Infrastructure Setup**:
 
    - Navigate to the infrastructure directory and initialize Terraform:
