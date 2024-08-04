@@ -3,7 +3,7 @@
 
 This project demonstrates the deployment of a Chat GPT clone application on a Kubernetes cluster using Terraform and Jenkins CI/CD pipeline. The setup automates the provisioning of infrastructure and the deployment of the application, providing a scalable and efficient solution for managing AI-powered chat services.
 
-![Architecture](https://github.com/user-attachments/assets/90f16968-8cdd-42f7-ba26-56c827265b5c)
+![ar](https://github.com/user-attachments/assets/593aee6c-6d87-4616-8ba7-7b7facf9b673)
 
 ## Introduction
 
